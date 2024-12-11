@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แบบฟอร์มตัวอย่าง</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <a href="users.html">go to users management</a>
+    <div class="form">
+    <!-- <form class="form" action="#" method="post"> -->
+        <h2>แบบฟอร์มตัวอย่าง</h2>
+
+        <div class="form-group">
+            <label for="name">ชื่อ:</label>
+            <input type="text" id="name" name="name" placeholder="Name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">อีเมล:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+            <label for="phone">เบอร์โทรศัพท์:</label>
+            <input type="tel" id="tel" name="phone">
+        </div>
+
+        <div class="form-group">
+            <label for="birthdate">วันเกิด:</label>
+            <input type="date" id="birthdate" name="birthdate">
+        </div>
+
+        <div class="form-group">
+            <label for="gender">เพศ:</label>
+            <select id="gender" name="gender">
+                <option value="">เลือกเพศ</option>
+                <option value="male">ชาย</option>
+                <option value="female">หญิง</option>
+                <option value="other">อื่นๆ</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="message">ข้อความ:</label>
+            <textarea  id="more" name="more" rows="4"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="newsletter">
+                <input  type="radio" id="more" name="newsletter">
+                สมัครรับจดหมายข่าว
+            </label>
+        </div>
+        <div id="showStatus" class="showStatus">..</div>
+        <input id="submit" type="submit" value="ส่งข้อมูล">
+    <!-- </form> -->
+     </div>
+    
+    <script>
+        document.querySelectorAll('.form-group').forEach(function (group) {
+            let input = group.querySelector('input, select, textarea');
+            input.addEventListener('focus', function () {
+                group.classList.add('active');
+            });
+            input.addEventListener('blur', function () {
+                if (input.value === '') {
+                    group.classList.remove('active');
+                }
+            });
+            input.addEventListener('input', createSparkles);
+        });
+
+        function createSparkles(e) {
+            let input = e.target;
+            let rect = input.getBoundingClientRect();
+            let x = e.clientX - rect.left;
+            let y = e.clientY - rect.top;
+
+            for (let i = 0; i < 5; i++) {
+                let sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                sparkle.style.left = (x + Math.random() * 20 - 10) + 'px';
+                sparkle.style.top = (y + Math.random() * 20 - 10) + 'px';
+                sparkle.style.width = sparkle.style.height = Math.random() * 4 + 2 + 'px';
+                sparkle.style.background = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                input.parentNode.appendChild(sparkle);
+
+                setTimeout(() => {
+                    sparkle.remove();
+                }, 2000);
+            }
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
