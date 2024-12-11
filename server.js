@@ -4,7 +4,7 @@ const mysql = require("mysql2/promise");
 const cors = require("cors");
 
 const host = "localhost";
-const port = 9999;
+const port = 7070;
 const app = express();
 let mydb = null;
 
