@@ -13,10 +13,9 @@ app.use(cors())
 
 const MySQL = async() => {
       mydb = await mysql.createConnection({
-            host: host,
-            // port: 3306,
-            user: "pxng_db",
-            password: "ASDfgh132435",
+            host: "localhost",
+            user: "pxng_admin",
+            password: "7Z9f*82jb",
             database: "pxngdb"
       })
 };
