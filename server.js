@@ -17,7 +17,7 @@ const MySQL = async() => {
             port: 8888,
             user: "root",
             password: "root",
-            database: "mydb",
+            database: "pxngdb",
       })
 };
 
