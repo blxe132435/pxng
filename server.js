@@ -15,8 +15,8 @@ const MySQL = async() => {
       mydb = await mysql.createConnection({
             host: host,
             port: 3306,
-            user: "root",
-            password: "root",
+            user: "pxng",
+            password: "ASDfgh132435",
             database: "pxngdb",
       })
 };
