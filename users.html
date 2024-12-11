@@ -11,8 +11,18 @@
       <div id="users" class="users">
             ไม่พอข้อมูล
       </div>
-
+	  <input id="submit" type="submit" value="ส่งข้อมูล">
       <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
-      <script src="users.js"></script>
+      <script>
+	const showUsers = document.getElementById("users");
+let btnSubmit = document.getElementById("submit");
+
+btnSubmit.addEventListener("click", async(e) => {
+e.target.value = "55555";
+	const response = await axios.get("https://pxng.online/users/")
+showUsers.innerHTML = response.data.data.map(user => `<li>${user.name} - id: ${user.id}</li>`).join("");
+console.log(response.data)
+})
+	</script>
 </body>
 </html>
