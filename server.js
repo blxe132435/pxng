@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 const mysql = require("mysql2/promise");
 const cors = require("cors");
 
-const host = "203.146.252.145";
+const host = "localhost";
 const port = 9999;
 const app = express();
 let mydb = null;
@@ -14,7 +14,7 @@ app.use(cors())
 const MySQL = async() => {
       mydb = await mysql.createConnection({
             host: host,
-            port: 8443,
+            port: 3306,
             user: "root",
             password: "root",
             database: "pxngdb",
