@@ -6,6 +6,7 @@ let inpMore = document.getElementById("more");
 let btnSubmit = document.getElementById("submit");
 let showStatus = document.querySelector("#showStatus");
 
+
 btnSubmit.addEventListener("click", async (e) => {
     e.target.value = "55555";
     try {
@@ -17,7 +18,7 @@ btnSubmit.addEventListener("click", async (e) => {
             gender: inpGender.value || null,
             more: inpMore.value || null,
         };
-        let statusCode = await axios.post("http://localhost:9999/users", userData)
+        let statusCode = await axios.post("https://pxng.online/users", userData)
         console.log(statusCode);
         console.log(userData);
         showStatus.innerHTML = "User created successfully";
